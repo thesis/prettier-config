@@ -1,0 +1,12 @@
+{
+  "name": "@keep-network/prettier-config-keep",
+  "version": "0.0.1",
+  "description": "Prettier configuration for Keep Network projects",
+  "main": "index.json",
+  "license": "MIT",
+  "author": "Jakub Nowakowski <jakub.nowakowski@keep.network>",
+  "peerDependencies": {
+    "prettier-plugin-sh": ">=0.6.0",
+    "prettier-plugin-toml": ">=0.3.1"
+  }
+}

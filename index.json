@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json.schemastore.org/prettierrc",
+  "plugins": [
+    "prettier-plugin-sh",
+    "prettier-plugin-toml"
+  ],
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "overrides": [
+    {
+      "files": [
+        "*.yaml",
+        "*.yml"
+      ],
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.toml.SAMPLE",
+      "options": {
+        "parser": "toml"
+      }
+    }
+  ]
+}
