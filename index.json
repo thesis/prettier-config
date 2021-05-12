@@ -1,18 +1,4 @@
 {
   "$schema": "http://json.schemastore.org/prettierrc",
-  "semi": false,
-  "overrides": [
-    {
-      "files": [
-        "*.yaml",
-        "*.yml"
-      ]
-    },
-    {
-      "files": "*.toml.SAMPLE",
-      "options": {
-        "parser": "toml"
-      }
-    }
-  ]
+  "semi": false
 }
