@@ -1,0 +1,66 @@
+# prettier-config-keep
+
+https://prettier.io/[Prettier] code formatter configuration shared across Keep
+Network projects.
+
+## Usage
+
+### Setting up a project
+
+1. Install dependencies:
++
+```sh
+  npm install --save-dev github:keep-network/prettier-config-keep prettier
+```
+
+2. Configure prettier:
++
+The easiest way to configure prettier to use this configuration is to define 
+`prettier` property in the project's `package.json`:
++
+```json
+"prettier": "@keep-network/prettier-config-keep"
+```
++
+For more sophisticated configuration instead of adding this entry add a configuration
+file (see: <<Plugins>> section).
+
+3. Define `scripts` property in `package.json`:
++
+```json
+"scripts": {
+  "format": "prettier --check .",
+  "format:fix": "prettier --write ."
+}
+```
+
+4. Run `npm run format` or `npm run format:fix`
+
+### Plugins
+
+To handle `*.sh` or `*.toml` files you need to install dedicated plugins:
+
+- for `sh`: `npm install --save-dev prettier-plugin-sh`
+- for `toml`: `npm install --save-dev prettier-plugin-toml`
+
+And configure the plugins usage in `.prettierrc.js`, e.g.:
+
+```js
+module.exports = {
+  ...require("@keep-network/prettier-config-keep"),
+  plugins: ["prettier-plugin-sh", "prettier-plugin-toml"],
+}
+```
+
+### Adding a pre-commit hook
+
+This solution is using https://pre-commit.com[pre-commit].
+
+```yaml
+- id: format
+  name: "code formatting"
+  entry: /usr/bin/env bash -c "npm run format"
+  exclude: '^staker-rewards\/|^solidity\/'
+  language: script
+  description: "Checks files formatting with prettier"
+```
