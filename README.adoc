@@ -1,17 +1,18 @@
-# prettier-config-keep
+# prettier-config
 
-https://prettier.io/[Prettier] code formatter configuration shared across Keep
-Network projects.
+https://prettier.io/[Prettier] code formatter configuration shared across Thesis projects.
 
 ## Usage
 
 ### Setting up a project
 
 1. Install dependencies:
+
 +
 ```sh
-  npm install --save-dev github:keep-network/prettier-config-keep prettier
+  yarn add --Dev github:thesis/prettier-config prettier
 ```
+
 
 2. Configure prettier:
 +
@@ -19,35 +20,35 @@ The easiest way to configure prettier to use this configuration is to define
 `prettier` property in the project's `package.json`:
 +
 ```json
-"prettier": "@keep-network/prettier-config-keep"
+"prettier": "@thesis/prettier-config"
 ```
 +
 For more sophisticated configuration instead of adding this entry add a configuration
 file (see: <<Plugins>> section).
 
-3. Define `scripts` property in `package.json`:
+3. Define `scripts` property in `package.json`, e.g.:
 +
 ```json
 "scripts": {
-  "format": "prettier --check .",
-  "format:fix": "prettier --write ."
+  "lint:config": "prettier -c '**/*.@(json|yaml|toml)'",
+  "lint:config:fix": "prettier -w '**/*.@(json|yaml|toml)'",
 }
 ```
 
-4. Run `npm run format` or `npm run format:fix`
+4. Run `yarn lint:config` or `yarn lint:config:fix`
 
 ### Plugins
 
 To handle `*.sh` or `*.toml` files you need to install dedicated plugins:
 
-- for `sh`: `npm install --save-dev prettier-plugin-sh`
-- for `toml`: `npm install --save-dev prettier-plugin-toml`
+- for `sh`: `yarn add --Dev prettier-plugin-sh`
+- for `toml`: `yarn add --Dev prettier-plugin-toml`
 
 And configure the plugins usage in `.prettierrc.js`, e.g.:
 
 ```js
 module.exports = {
-  ...require("@keep-network/prettier-config-keep"),
+  ...require("@thesis/prettier-config"),
   plugins: ["prettier-plugin-sh", "prettier-plugin-toml"],
 }
 ```
@@ -58,9 +59,8 @@ This solution is using https://pre-commit.com[pre-commit].
 
 ```yaml
 - id: format
-  name: "code formatting"
-  entry: /usr/bin/env bash -c "npm run format"
-  exclude: '^staker-rewards\/|^solidity\/'
+  name: "code config formatting"
+  entry: /usr/bin/env bash -c "npm run lint:config"
   language: script
   description: "Checks files formatting with prettier"
 ```

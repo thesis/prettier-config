@@ -1,7 +1,7 @@
 {
-  "name": "@keep-network/prettier-config-keep",
+  "name": "@thesis/prettier-config",
   "version": "0.0.1",
-  "description": "Prettier configuration for Keep Network projects",
+  "description": "Prettier configuration for Thesis projects",
   "main": "index.json",
   "license": "MIT",
   "author": "Jakub Nowakowski <jakub.nowakowski@keep.network>",
