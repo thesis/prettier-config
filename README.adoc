@@ -34,6 +34,8 @@ file (see: <<Plugins>> section).
   "lint:config:fix": "prettier -w '**/*.@(json|yaml|toml)'",
 }
 ```
++
+For `JavaScript` and `TypeScript` Thesis projects should use prettier-eslint integration in https://github.com/thesis/eslint-config[@thesis/eslint-config].
 
 4. Run `yarn lint:config` or `yarn lint:config:fix`
 
