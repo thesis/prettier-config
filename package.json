@@ -1,11 +1,11 @@
 {
   "name": "@thesis/prettier-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Prettier configuration for Thesis projects",
   "main": "index.json",
   "license": "MIT",
   "author": "Jakub Nowakowski <jakub.nowakowski@keep.network>",
   "peerDependencies": {
-    "prettier": "^2.3.0"
+    "prettier": ">=2.3.0 <4"
   }
 }
